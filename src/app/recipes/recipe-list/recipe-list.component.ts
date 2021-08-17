@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -7,29 +6,25 @@ import { Recipe } from '../recipe.model';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
 })
-export class RecipeListComponent {
-  // TS już będzie wiedział, że tablica recipes będzie składać się z modelów Recipe, które będą obiektami podanymi w tablicy
+export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
-    // tworzę nowy Recipe zgodnie z modelem
     new Recipe(
-      'A test recipe',
-      'This is simply a test',
-      'https://cdn.pixabay.com/photo/2020/01/29/17/44/arugula-4803139_960_720.jpg'
+      'a test recipe',
+      'this is a simply recipe',
+      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
     ),
     new Recipe(
-      'A second test recipe',
-      'This is simply a second test',
-      'https://cdn.pixabay.com/photo/2020/01/29/17/44/arugula-4803139_960_720.jpg'
+      'a second test recipe',
+      'this is a simply second recipe',
+      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
     ),
     new Recipe(
-      'A third test recipe',
-      'This is simply a third test',
-      'https://cdn.pixabay.com/photo/2020/01/29/17/44/arugula-4803139_960_720.jpg'
+      'a third test recipe',
+      'this is a simply third recipe',
+      'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'
     ),
   ];
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+  constructor() {}
 
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
-  }
+  ngOnInit(): void {}
 }

@@ -6,14 +6,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  @Output() navListener = new EventEmitter<string>();
   collapsed = true;
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  onSelect(name: string) {
-    this.navListener.emit(name);
-  }
 }
